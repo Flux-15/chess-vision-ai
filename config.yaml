@@ -1,0 +1,50 @@
+dataset:
+  held_out_pieces:
+  - alpha
+  held_out_themes:
+  - icy
+  output_dir: dataset
+  train_samples: 80000
+  val_samples: 20000
+engine:
+  mcts_simulations: 100
+  policy_weights_path: models/policy_value.pt
+  skill_level: 20
+  stockfish_path: stockfish/stockfish-windows-x86-64-avx2.exe
+  time_budget_ms: 1500
+  type: stockfish
+  uci_elo: null
+lichess:
+  accept_casual: true
+  accept_rated: true
+  log_dir: pgn_logs
+  time_controls:
+  - rapid
+  - classical
+  - blitz
+match:
+  increment_seconds: 0
+  initial_time_seconds: 600
+  platform: chess.com
+  time_control_preset: 10m
+  user_color: white
+model:
+  batch_size: 64
+  classifier_type: mobilenet_v3_small
+  image_size: 64
+  num_classes: 13
+  weights_path: models/classifier.pt
+system:
+  debug: true
+  debug_dir: debug_frames
+  device: cuda
+vision:
+  auto_detect_orientation: false
+  board_size: 512
+  capture_source: screen
+  confidence_threshold: 0.85
+  flipped: false
+  homography_threshold: 5.0
+  min_contour_area_ratio: 0.05
+  screen_region: null
+  square_margin_crop: 3
